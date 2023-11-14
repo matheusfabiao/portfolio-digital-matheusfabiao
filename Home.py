@@ -4,7 +4,8 @@ from PIL import Image
 
 current_dir = Path(__file__).parent if '__file__' in locals() else Path.cwd()
 css_file = current_dir / 'styles' / 'style.css'
-resume_file = current_dir / 'assets' / 'profile-pic.png'
+resume_file = current_dir / 'assets' / 'Matheus Fabião CV Resume.pdf'
+profile_pic = current_dir / 'assets' / 'profile-pic.png'
 
 PAGE_TITLE = 'CV Digital | Matheus Fabião'
 PAGE_ICON = ':wave:'
@@ -30,4 +31,10 @@ st.set_page_config(
     page_icon=PAGE_ICON
 )
 
-st.title('Hello World!')
+# Load css, pdf and profile pic files
+with open(css_file) as file:
+    st.markdown(f'<style>{file.read()}</style>', unsafe_allow_html=True)
+    
+with open(resume_file, 'rb') as pdf_file:
+    PDFbyte = pdf_file.read()
+profile_pic = Image.open(profile_pic)
