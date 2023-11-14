@@ -38,3 +38,87 @@ with open(css_file) as file:
 with open(resume_file, 'rb') as pdf_file:
     PDFbyte = pdf_file.read()
 profile_pic = Image.open(profile_pic)
+
+# Hero Section
+col1, col2 = st.columns(2, gap='small')
+with col1:
+    st.image(profile_pic, width=230)
+    
+with col2:
+    st.title(NAME)
+    st.write(DESCRIPTION)
+    st.download_button(
+        label=' 📄 Download CV',
+        data=PDFbyte,
+        file_name=resume_file.name,
+        mime='application/octet-stream'
+        )
+    st.write('📧', EMAIL)
+    
+# Social Links
+st.write('#')
+cols = st.columns(len(SOCIAL_MEDIA))
+for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
+    cols[index].write(f'[{platform}]({link})')
+    
+# Experience & Qualifications
+st.write('#')
+st.subheader('Experiência e Qualificações')
+st.write('''
+         - ✔️ 2 anos de experiência em ambiente profissional
+         - ✔️ 1 ano de experiência com modelos de IA
+         - ✔️ Grande entendimento em estatística aplicada
+         - ✔️ Ótimo em trabalho em equipe e comunicação
+         - ✔️ Excelência em entendimento de tasks e projetos
+         ''')
+
+# Skills
+st.write('#')
+st.subheader('Habilidades Técnicas')
+st.write('''
+         - Programação: Python (Scikit-learn, pytorch, pandas), SQL
+         - Visualização de Dados: (matplotlib, seaborn, plotly)
+         - Modelagem: Regressão Linear, Regressão Logística, Árvores de decisão, Florestas Aleatórias
+         - Banco de Dados: Postgres, MongoDB, MySQL, Microsoft SQL Server e Oracle
+         ''')
+
+# Work History
+st.write('#')
+st.subheader('Histórico de Trabalho')
+st.write('---')
+
+# Job 1
+st.write('🚧', '**Cientista de Dados | Free Lancer**')
+st.write('02/2023 - Present')
+st.write('''
+         - ► Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacinia orci quis eleifend placerat. Etiam vel orci neque. Sed feugiat ipsum elit, vitae faucibus libero viverra eu. Suspendisse vehicula tellus vel dapibus pulvinar.
+         - ► Praesent accumsan enim in dui pulvinar, a auctor lacus varius. Aliquam erat quam, efficitur euismod efficitur non, dictum in orci. Sed venenatis, justo varius pretium molestie, libero purus luctus felis, at sollicitudin sapien eros vitae nibh.
+         - ► Morbi commodo suscipit iaculis. Nulla ultrices fringilla nisi vitae fringilla. Suspendisse nisl justo, sodales sed pharetra ac, scelerisque in massa. Nam vitae nibh vitae leo convallis tincidunt. Ut tempor eu ligula.
+         ''')
+
+# Job 2
+st.write('#')
+st.write('🚧', '**Cientista de Dados | Free Lancer**')
+st.write('02/2023 - Present')
+st.write('''
+         - ► Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacinia orci quis eleifend placerat. Etiam vel orci neque. Sed feugiat ipsum elit, vitae faucibus libero viverra eu. Suspendisse vehicula tellus vel dapibus pulvinar.
+         - ► Praesent accumsan enim in dui pulvinar, a auctor lacus varius. Aliquam erat quam, efficitur euismod efficitur non, dictum in orci. Sed venenatis, justo varius pretium molestie, libero purus luctus felis, at sollicitudin sapien eros vitae nibh.
+         - ► Morbi commodo suscipit iaculis. Nulla ultrices fringilla nisi vitae fringilla. Suspendisse nisl justo, sodales sed pharetra ac, scelerisque in massa. Nam vitae nibh vitae leo convallis tincidunt. Ut tempor eu ligula.
+         ''')
+
+# Job 3
+st.write('#')
+st.write('🚧', '**Cientista de Dados | Free Lancer**')
+st.write('02/2023 - Present')
+st.write('''
+         - ► Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacinia orci quis eleifend placerat. Etiam vel orci neque. Sed feugiat ipsum elit, vitae faucibus libero viverra eu. Suspendisse vehicula tellus vel dapibus pulvinar.
+         - ► Praesent accumsan enim in dui pulvinar, a auctor lacus varius. Aliquam erat quam, efficitur euismod efficitur non, dictum in orci. Sed venenatis, justo varius pretium molestie, libero purus luctus felis, at sollicitudin sapien eros vitae nibh.
+         - ► Morbi commodo suscipit iaculis. Nulla ultrices fringilla nisi vitae fringilla. Suspendisse nisl justo, sodales sed pharetra ac, scelerisque in massa. Nam vitae nibh vitae leo convallis tincidunt. Ut tempor eu ligula.
+         ''')
+
+# Projects & Accompliments
+st.write('#')
+st.subheader('Projetos e Realizações')
+st.write('---')
+for project,  link in PROJECTS.items():
+    st.write(f'[{project}]({link})')
